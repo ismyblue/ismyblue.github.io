@@ -7,8 +7,19 @@
 <script>
 $(document).ready(function(){
   $("button").click(function(){
-    $("#div1").load("https://www.runoob.com/try/try/ajax/demo_test.txt");
-    alert("finished ajax")
+   $.ajax(()=>{     
+     "url": "https://api.coindesk.com/v1/bpi/currentprice.json",     
+     "type": "get",
+     "dataType": "json",
+     "success": function(json){
+       var last = JSON.stringify(json)
+       alert(last)
+     },
+     "error": (json)=>{
+       var last = JSON.stringify(json)
+       alert(last)
+     }
+   })
   });
 });
 </script>
